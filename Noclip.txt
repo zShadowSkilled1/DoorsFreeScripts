@@ -1,0 +1,19 @@
+local canEnable = true
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.Touched:Connect(function()
+      if canEnable == true then
+         game.Players.LocalPlayer.Character.HumanoidRootPart.CanTouch = false
+         canEnable = false
+         wait(0.3)
+	 game.Players.LocalPlayer.Character.Collision.Position = game.Players.LocalPlayer.Character.Collision.Position - Vector3.new(0,10,0)
+   end
+end)
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.TouchEnded:Connect(function()
+      if canEnable == false then
+         game.Players.LocalPlayer.Character.HumanoidRootPart.CanTouch = true
+         canEnable = true
+         wait(0.3)
+	 game.Players.LocalPlayer.Character.Collision.Position = game.Players.LocalPlayer.Character.Collision.Position + Vector3.new(0,10,0)
+     end
+end)
